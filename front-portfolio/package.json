@@ -8,10 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "bulma": "^0.9.1",
     "next": "10.0.1",
-    "postcss-preset-env": "^6.7.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "tailwindcss": "^1.9.6"
+    "sass": "^1.29.0"
   }
 }

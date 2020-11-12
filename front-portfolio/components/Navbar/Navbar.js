@@ -1,49 +1,58 @@
+import React, { useState } from "react";
 import Link from "next/link";
-import React from 'react';
 
 const Navbar = () => {
-  console.log('Navbar')
-  return (
-    <div className="mx-auto p-5">
-          <nav className="flex md:justify-between items-center">
-            <div className="flex justify-between w-full">
-              <Link href="/">
-                <img className="ml-8 h-10 cursor-pointer" src="/fakeblog_logo.svg"  alt="feather with the blog name" />
-              </Link>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="cursor-pointer md:hidden text-green-300 w-10  mr-8"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </div>
+  console.log("Navbar");
+  const [openHamburgerMenu, setOpenHamburgerMenu] = useState(false);
 
-            <ul className="hidden md:flex md:flex-row" id="mobileMenu">
-              <li className="pr-5">
-                <Link href="/">
-                  <div className="cursor-pointer py-2 px-5 rounded hover:bg-green-300 text-gray-700 hover:text-white duration-300 text-lg">
-                    Home
-                  </div>
-                </Link>
-              </li>
-              <li className="pr-5">
-                <Link href="/about">
-                  <div className="cursor-pointer py-2 px-5 rounded hover:bg-green-300 text-gray-700 hover:text-white duration-300 text-lg">
-                    About
-                  </div>
-                </Link>
-              </li>
-            </ul>
-          </nav>
+  return (
+    <nav
+      className="navbar py-5 px-3"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div className="navbar-brand">
+        <a className="navbar-item ml-6" href="https://bulma.io">
+          <img
+            src="https://bulma.io/images/bulma-logo.png"
+            width="112"
+            height="28"
+          />
+        </a>
+
+        <a
+          role="button"
+          className={`navbar-burger ${openHamburgerMenu ? `burger is-active` : `burger`}`}
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+          onClick={() => setOpenHamburgerMenu(!openHamburgerMenu)}
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div className={`navbar-menu ${openHamburgerMenu ? `burger is-active` : null}`}>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <Link href="/">
+              <a className="is-clickable mr-5 txt-link">Accueil</a>
+            </Link>
+            <Link href="/realisations">
+              <a className="is-clickable mr-5 txt-link">Réalisations</a>
+            </Link>
+            <Link href="contact">
+              <a className="button is-rounded is-primary is-outlined mr-6 animation-btn">
+                Contactez-moi
+              </a>
+            </Link>
+          </div>
         </div>
-)};
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;

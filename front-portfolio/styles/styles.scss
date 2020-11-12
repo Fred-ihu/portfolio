@@ -1,0 +1,36 @@
+// $grey-dark: #f0f;
+$primary: #FF8B63;
+$link: #3F3D56;
+$link-invert: #cdcbdb;
+$link-light: #2c1cdb;
+$link-dark: #ffffff;
+@import "bulma/bulma";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: $grey-dark;
+}
+
+.page {
+  margin: 5rem 10rem;
+}
+
+.txt-link {
+  color: $grey-dark;
+  &:hover {
+    color: $primary;
+    // transition-duration: .2s;
+    transition: all .2s ease-in-out !important;
+  }
+}
+
+.animation-btn {
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out !important;
+}
+
+.has-negative-margin-top {
+  margin-top: -3.4rem;
+}
